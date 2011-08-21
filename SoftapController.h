@@ -32,9 +32,19 @@ class SoftapController {
     char mIface[IFNAMSIZ];
     pid_t mPid;
     int mSock;
+    bool mAdHoc;
 
     int getPrivFuncNum(char *iface, const char *fname);
     int addParam(int pos, const char *cmd, const char *arg);
+
+    /* Ad-Hoc mode */
+    int startDriver_AdHoc(char *iface);
+    int stopDriver_AdHoc(char *iface);
+    int startSoftap_AdHoc();
+    int stopSoftap_AdHoc();
+    int setSoftap_AdHoc(int argc, char *argv[]);
+    int fwReloadSoftap_AdHoc(int argc, char *argv[]);
+
 public:
     SoftapController();
     virtual ~SoftapController();
